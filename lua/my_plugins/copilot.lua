@@ -27,15 +27,17 @@ return {
 		},
 		opts = {
 			adapters = {
-				copilot = function()
-					return require("codecompanion.adapters").extend("copilot", {
-						schema = {
-							model = {
-								default = "gpt-4o",
+				http = {
+					copilot = function()
+						return require("codecompanion.adapters").extend("copilot", {
+							schema = {
+								model = {
+									default = "gpt-4o",
+								},
 							},
-						},
-					})
-				end,
+						})
+					end,
+				},
 			},
 			strategies = {
 				chat = { adapter = "copilot" },
