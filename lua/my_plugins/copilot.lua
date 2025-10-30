@@ -71,16 +71,24 @@ return {
 	},
 
 	-- Markview for markdown preview in CodeCompanion
-	{
-		"OXY2DEV/markview.nvim",
-		lazy = false,
-		opts = {
-			preview = {
-				filetypes = { "markdown", "codecompanion" },
-				ignore_buftypes = {},
-			},
-		},
-	},
+	-- {
+	-- 	"OXY2DEV/markview.nvim",
+	-- 	lazy = false,
+	-- 	opts = {
+	-- 		preview = {
+	-- 			modes = { "n", "no", "c" },
+	-- 			hybrid_modes = { "n" },
+	-- 			callbacks = {
+	-- 				on_enable = function(_, win)
+	-- 					vim.wo[win].conceallevel = 0
+	-- 					vim.wo[win].concealcursor = ""
+	-- 				end,
+	-- 			},
+	-- 			filetypes = { "markdown", "codecompanion" },
+	-- 			ignore_buftypes = {},
+	-- 		},
+	-- 	},
+	-- },
 
 	-- Image clipboard for CodeCompanion
 	{
@@ -100,6 +108,12 @@ return {
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
 		ft = { "markdown", "codecompanion" },
+		opts = {
+			render_modes = { "n", "c" },
+			anti_conceal = {
+				enabled = true,
+			},
+		},
 	},
 
 	-- GP.nvim - Advanced GPT interface
