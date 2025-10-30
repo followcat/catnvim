@@ -50,10 +50,10 @@ Plugins will automatically install on first launch.
 ## ⌨️ Key Bindings
 
 ### File Navigation
-- `<F2>` - Toggle file explorer (Neo-tree)
+- `<F9>` - Toggle file explorer (Neo-tree)
+- `<F8>` - Git status (floating window)
+- `<F7>` - Code outline (Aerial)
 - `<F4>` - Open Telescope picker
-- `<C-j>` - Previous buffer
-- `<C-k>` - Next buffer
 
 ### AI Assistants
 - `<F3>` - Toggle CodeCompanion chat
@@ -63,8 +63,18 @@ Plugins will automatically install on first launch.
 - `<C-g>r` - GPT respond
 - Visual mode: `<C-g>` - Search selection with Telescope
 
+### Terminal
+- `<Alt-u>` - Toggle floating terminal
+- `<Alt-b>` - Toggle bottom terminal
+
+### Buffer Navigation
+- `<C-j>` - Previous buffer
+- `<C-k>` - Next buffer
+- `<Shift-h>` - Previous buffer (alternative)
+- `<Shift-l>` - Next buffer (alternative)
+
 ### Copilot
-- `<C-j>` (Insert mode) - Accept Copilot suggestion
+- `<C-J>` (Insert mode) - Accept Copilot suggestion
 
 ## 🎨 Customization
 
