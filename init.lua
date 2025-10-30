@@ -52,14 +52,18 @@ pcall(require, "custom")
 
 -- File Explorer (already mapped in core.lua via custom_keys.file_explorer)
 
--- Buffer Navigation
-vim.api.nvim_set_keymap('n', '<C-j>', ':bprevious<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-k>', ':bnext<CR>', { noremap = true, silent = true })
-
--- AI Assistants
-vim.api.nvim_set_keymap('n', '<F3>', ':CodeCompanionChat Toggle<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<F4>', ':Telescope<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<F5>', ':ChatGPT<CR>', { noremap = true, silent = true })
+-- 快捷键打开/关闭NERDTree
+vim.api.nvim_set_keymap('n', '<F2>', ':NeoTreeShowToggle<CR>', { noremap = true })
+-- 切换到上一个文件
+vim.api.nvim_set_keymap('n', '<C-j>', ':bprevious<CR>', {noremap = true, silent = true})
+-- 切换到下一个文件
+vim.api.nvim_set_keymap('n', '<C-k>', ':bnext<CR>', {noremap = true, silent = true})
+-- 打开CodeCompanion窗口
+vim.api.nvim_set_keymap('n', '<F3>', ':CodeCompanionChat Toggle<CR>', {noremap = true, silent = true})
+-- 打开Telescope窗口
+vim.api.nvim_set_keymap('n', '<F4>', ':Telescope<CR>', {noremap = true, silent = true})
+-- 打开ChatGPT窗口
+vim.api.nvim_set_keymap('n', '<F5>', ':ChatGPT<CR>', {noremap = true, silent = true})
 
 -- GPT Commands
 local function keymapOptions(desc)
