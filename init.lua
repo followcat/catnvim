@@ -50,8 +50,7 @@ pcall(require, "custom")
 -- Custom Keybindings
 -- ═══════════════════════════════════════════════════════════
 
--- File Explorer
-vim.api.nvim_set_keymap('n', '<F2>', ':NeoTreeShowToggle<CR>', { noremap = true, silent = true })
+-- File Explorer (already mapped in core.lua via custom_keys.file_explorer)
 
 -- Buffer Navigation
 vim.api.nvim_set_keymap('n', '<C-j>', ':bprevious<CR>', { noremap = true, silent = true })

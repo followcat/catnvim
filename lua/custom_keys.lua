@@ -6,19 +6,27 @@ return {
 	-- Leader key
 	leader = " ",
 
+	-- ─── Window Navigation ──────────────────────────────────
+	jump_left_window = "<C-h>",
+	jump_right_window = "<C-l>",
+	jump_up_window = "<C-k>",
+	jump_down_window = "<C-j>",
+
 	-- ─── File Explorer ──────────────────────────────────────
-	file_explorer = {
-		toggle = "<leader>e",
-		focus = "<leader>o",
-	},
+	file_explorer = "<F9>",
+	git_status = "<F8>",
+
+	-- ─── Code Outline ───────────────────────────────────────
+	outline = "<F7>",
 
 	-- ─── Buffer Management ──────────────────────────────────
 	buffer = {
 		prev = "<S-h>",
 		next = "<S-l>",
 		close = "<leader>x",
-		pick = "<leader>b",
+		pick = "<leader>tt",
 	},
+	pick_tab = "<leader>tt",
 
 	-- ─── Window Management ──────────────────────────────────
 	window = {
@@ -27,16 +35,26 @@ return {
 		close = "<leader>q",
 	},
 
-	-- ─── Search and Find ────────────────────────────────────
+	-- ─── Search and Find (Telescope) ────────────────────────
+	find_files = "<leader>ff",
+	live_grep = "<leader>gg",
+	search_cursor = "<leader>cc",
+	find_buffer = "<leader>bb",
 	telescope = {
 		find_files = "<leader>ff",
-		live_grep = "<leader>fg",
-		buffers = "<leader>fb",
+		live_grep = "<leader>gg",
+		buffers = "<leader>bb",
 		help_tags = "<leader>fh",
 		recent_files = "<leader>fr",
 	},
 
 	-- ─── LSP ────────────────────────────────────────────────
+	goto_definition = "gd",
+	goto_references = "gr",
+	goto_declaration = "gD",
+	goto_impl = "gi",
+	lsp_rename = "<leader>re",
+	format = "<leader>vv",
 	lsp = {
 		goto_definition = "gd",
 		goto_declaration = "gD",
@@ -45,24 +63,37 @@ return {
 		references = "gr",
 		hover = "K",
 		signature_help = "<C-k>",
-		rename = "<leader>rn",
+		rename = "<leader>re",
 		code_action = "<leader>ca",
-		format = "<leader>f",
+		format = "<leader>vv",
 	},
 
 	-- ─── Terminal ───────────────────────────────────────────
+	terminal_float = "<A-u>",
+	terminal_bottom = "<A-b>",
 	terminal = {
-		toggle = "<C-/>",
-		toggle_float = "<leader>tf",
+		toggle = "<A-b>",
+		toggle_float = "<A-u>",
 	},
 
-	-- ─── Git ────────────────────────────────────────────────
+	-- ─── Git / Diff View ────────────────────────────────────
+	diff_open = "<leader>df",
+	diff_close = "<leader>dc",
 	git = {
-		status = "<leader>gs",
+		status = "<F8>",
 		commit = "<leader>gc",
 		diff = "<leader>gd",
 		blame = "<leader>gb",
 	},
+
+	-- ─── Window Resize ──────────────────────────────────────
+	resize_left = "<C-A-h>",
+	resize_down = "<C-A-j>",
+	resize_up = "<C-A-k>",
+	resize_right = "<C-A-l>",
+
+	-- ─── Session Management ─────────────────────────────────
+	switch_session = "<leader>ss",
 
 	-- ─── Misc ───────────────────────────────────────────────
 	misc = {

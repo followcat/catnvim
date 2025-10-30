@@ -38,19 +38,17 @@ local function set_keymap()
 	map("n", keys.buffer.pick, ":BufferLinePick<CR>", option)
 
 	-- Neo-tree
-	map("n", keys.file_explorer.toggle, ":Neotree position=left source=filesystem action=show toggle=true<CR>", option)
+	map("n", keys.file_explorer, ":Neotree position=left source=filesystem action=show toggle=true<CR>", option)
 
 	-- Git status
-	if keys.git and keys.git.status then
-		map("n", keys.git.status, ":Neotree position=float source=git_status action=show toggle=true<CR>", option)
-	end
+	map("n", keys.git_status, ":Neotree position=float source=git_status action=show toggle=true<CR>", option)
 
 	-- Aerial outline
-	map("n", "<leader>a", ":AerialToggle! right<CR>", option)
+	map("n", keys.outline, ":AerialToggle! right<CR>", option)
 
 	-- Diffview
-	map("n", "<leader>do", ":DiffviewOpen<CR>", option)
-	map("n", "<leader>dc", ":DiffviewClose<CR>", option)
+	map("n", keys.diff_open, ":DiffviewOpen<CR>", option)
+	map("n", keys.diff_close, ":DiffviewClose<CR>", option)
 
 	-- Terminal setup
 	local float_terminal_default = require("toggleterm.terminal").Terminal:new({
