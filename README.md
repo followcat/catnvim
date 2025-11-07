@@ -1,19 +1,19 @@
 <p align="center">
-  <img width="180" src="https://github.com/hardhackerlabs/themes/raw/master/media/logo/logo.png" alt="HardHacker">
+  🐱
 </p>
 
 <h1 align="center">
-    oh-my-nvim<br/>
-  <a href="https://discord.com/invite/MGmp9QjfkK">
-    <img src="https://img.shields.io/discord/1095552215944527962?style=for-the-badge&logo=discord&color=e965a5&logoColor=eee9fc&labelColor=282433"/>
-  </a>
+    CatNvim
 </h1>
 
-A **theme-driven**, out-of-the-box modern configuration of neovim 💎
+<p align="center">
+  <em>A purr-fect Neovim configuration by followcat 🐾</em>
+</p>
 
-We developed a theme called [HardHacker](https://github.com/hardhackerlabs/themes), which we thought was pretty and eye friendly,
-but we found that many neovim plugins have their own color scheme,
-so we made a neovim integration environment that matches the hardhacker theme.
+A **modern**, **theme-driven** Neovim configuration tailored for productivity and elegance 💎
+
+This is followcat's personal Neovim setup - a carefully crafted development environment
+built on top of lazy.nvim with sensible defaults and powerful plugins.
 
 ## 📦 Features
 
@@ -59,22 +59,22 @@ so we made a neovim integration environment that matches the hardhacker theme.
 
 0️⃣ **Backup your current nvim**
 
-```
+```bash
 mv ~/.config/nvim       ~/.config/nvim.bak
 mv ~/.local/share/nvim  ~/.local/share/nvim.bak
 ```
 
-1️⃣ **Clone oh-my-nvim repo**
+1️⃣ **Clone catnvim repo**
 
+```bash
+git clone https://github.com/followcat/catnvim.git ~/.config/nvim
 ```
-git clone https://github.com/hardhackerlabs/oh-my-nvim.git ~/.config/nvim
-```
 
-2️⃣ **Start `nvim` in your terminal, then automatically install and setup all plugins**
+2️⃣ **Start `nvim` in your terminal, plugins will be automatically installed**
 
-3️⃣ **Restart `nvim` and enjoy it** 🍻
+3️⃣ **Restart `nvim` and enjoy it** 🐱
 
-4️⃣ **Keep updated**
+4️⃣ **Keep updated with `git pull`**
 
 ## ⌛️ Update
 
@@ -124,26 +124,35 @@ Use command `:TSInstall` to download and install a parser, e.g. `:TSInstall rust
 
 #### ⌨️ Shortcut Keys
 
-[👉 View the default shortcut settings](https://github.com/hardhackerlabs/oh-my-nvim/blob/main/lua/custom_keys.lua)
+[👉 View the default shortcut settings](./lua/custom_keys.lua)
 
-You can edit the default settings of the shortcut keys in this configuration file (`~/.config/nvim/lua/custom_keys.lua`).
+Edit shortcuts in `~/.config/nvim/lua/custom_keys.lua`
+
+**Additional keymaps (from init.vim, now in core.lua):**
+- `<Space>` - Leader key
+- `<leader>w/q/wq` - Save/Quit/Save&Quit
+- `<leader>h` - Clear search highlight
+- `<C-h/j/k/l>` - Window navigation
+- `<C-Up/Down/Left/Right>` - Resize windows
+- `<Tab>/<S-Tab>` - Next/Previous tab
+- `<leader>bn/bp/bd` - Buffer next/previous/delete
+- `<A-j/k>` - Move lines up/down
+- `Y` - Copy to end of line
 
 #### 😍 Add the plugins you want
 
-If you want to add your own plugins, you can create a `plugin_name.lua` file in the directory `~/.config/nvim/lua/my_plugins`. Setup the plugins in this file.
+Create a `plugin_name.lua` file in `~/.config/nvim/lua/my_plugins/` and configure plugins using lazy.nvim syntax:
 
-The plugin configuration in the `plugin_name.lua` file refers to the following template (lazy.nvim syntax):
-
-```
+```lua
 return {
     -- Your Plugin1
     {
-        'hardhacker/plugin1',
+        'username/plugin1',
         config = function() ... end
     },
 
     -- Your Plugin2
-    {'hardhacker/plugin2'},
+    {'username/plugin2'},
 }
 ```
 

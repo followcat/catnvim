@@ -1,3 +1,7 @@
+-- ============================================
+-- CatNvim - followcat's Neovim Configuration
+-- ============================================
+
 -- Basic settings
 require("basic")
 

@@ -1,3 +1,9 @@
+-- ============================================
+-- CatNvim - Core Configuration
+-- followcat's Neovim Configuration
+-- Keymaps & Autocmds (migrated from init.vim)
+-- ============================================
+
 local keys = require("custom_keys")
 local opts = require("custom_opts")
 
@@ -6,10 +12,54 @@ local function set_keymap()
 	local map = vim.keymap.set
 	local option = { noremap = true, silent = true }
 
+	-- Window navigation (from init.vim)
 	map("n", keys.jump_left_window, "<C-W>h", option)
 	map("n", keys.jump_down_window, "<C-W>j", option)
 	map("n", keys.jump_up_window, "<C-W>k", option)
 	map("n", keys.jump_right_window, "<C-W>l", option)
+
+	-- Window resizing (from init.vim)
+	map("n", "<C-Up>", ":resize +2<CR>", option)
+	map("n", "<C-Down>", ":resize -2<CR>", option)
+	map("n", "<C-Left>", ":vertical resize -2<CR>", option)
+	map("n", "<C-Right>", ":vertical resize +2<CR>", option)
+
+	-- Save, quit shortcuts (from init.vim)
+	map("n", "<leader>w", ":w<CR>", option)
+	map("n", "<leader>q", ":q<CR>", option)
+	map("n", "<leader>wq", ":wq<CR>", option)
+
+	-- Clear search highlight (from init.vim)
+	map("n", "<leader>h", ":nohlsearch<CR>", option)
+
+	-- Tab navigation (from init.vim)
+	map("n", "<leader>tn", ":tabnew<CR>", option)
+	map("n", "<leader>tc", ":tabclose<CR>", option)
+	map("n", "<leader>to", ":tabonly<CR>", option)
+	map("n", "<Tab>", ":tabnext<CR>", option)
+	map("n", "<S-Tab>", ":tabprevious<CR>", option)
+
+	-- Buffer navigation (from init.vim)
+	map("n", "<leader>bn", ":bnext<CR>", option)
+	map("n", "<leader>bp", ":bprevious<CR>", option)
+	map("n", "<leader>bd", ":bdelete<CR>", option)
+
+	-- Move lines (from init.vim)
+	map("n", "<A-j>", ":m .+1<CR>==", option)
+	map("n", "<A-k>", ":m .-2<CR>==", option)
+	map("v", "<A-j>", ":m '>+1<CR>gv=gv", option)
+	map("v", "<A-k>", ":m '<-2<CR>gv=gv", option)
+
+	-- Copy to end of line (from init.vim)
+	map("n", "Y", "y$", option)
+
+	-- Keep visual mode when indenting (from init.vim)
+	map("v", "<", "<gv", option)
+	map("v", ">", ">gv", option)
+
+	-- Netrw file explorer shortcuts (from init.vim)
+	map("n", "<leader>e", ":Explore<CR>", option)
+	map("n", "<leader>v", ":Vexplore<CR>", option)
 
 	vim.cmd([[
     " press esc to cancel search highlight
@@ -151,6 +201,47 @@ local function set_autocmd()
 		callback = function()
 			vim.cmd("colorscheme" .. " " .. current_colorscheme)
 		end,
+	})
+
+	-- Autocmds from init.vim
+	local autocmd_group = vim.api.nvim_create_augroup("FollowcatAutoCommands", { clear = true })
+
+	-- Remove trailing whitespace on save
+	vim.api.nvim_create_autocmd("BufWritePre", {
+		group = autocmd_group,
+		pattern = "*",
+		command = [[%s/\s\+$//e]],
+	})
+
+	-- Remember last cursor position
+	vim.api.nvim_create_autocmd("BufReadPost", {
+		group = autocmd_group,
+		pattern = "*",
+		callback = function()
+			local line = vim.fn.line("'\"")
+			if line > 0 and line <= vim.fn.line("$") then
+				vim.cmd('normal! g`"')
+			end
+		end,
+	})
+
+	-- File type specific settings
+	vim.api.nvim_create_autocmd("FileType", {
+		group = autocmd_group,
+		pattern = "python",
+		command = "setlocal tabstop=4 shiftwidth=4 expandtab",
+	})
+
+	vim.api.nvim_create_autocmd("FileType", {
+		group = autocmd_group,
+		pattern = { "javascript", "typescript", "json", "yaml", "html", "css" },
+		command = "setlocal tabstop=2 shiftwidth=2 expandtab",
+	})
+
+	vim.api.nvim_create_autocmd("FileType", {
+		group = autocmd_group,
+		pattern = "go",
+		command = "setlocal tabstop=4 shiftwidth=4 noexpandtab",
 	})
 end
 

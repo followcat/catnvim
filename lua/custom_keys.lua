@@ -1,6 +1,9 @@
---
+-- ============================================
+-- CatNvim - Custom Keys Configuration
+-- followcat's Neovim Configuration
 -- You can edit the default settings of the shortcut keys here
---
+-- ============================================
+
 return {
 	-- The default '<leader>' is the space.
 	leader = " ",
