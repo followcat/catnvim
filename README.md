@@ -1,175 +1,299 @@
-<p align="center">
-  🐱
-</p>
+<div align="center">
 
-<h1 align="center">
-    CatNvim
-</h1>
+# 🐱 CatNvim
 
-<p align="center">
-  <em>A purr-fect Neovim configuration by followcat 🐾</em>
-</p>
+### *A purr-fect Neovim configuration by followcat*
 
-A **modern**, **theme-driven** Neovim configuration tailored for productivity and elegance 💎
+[![Neovim](https://img.shields.io/badge/Neovim-0.8+-blueviolet.svg?style=flat-square&logo=Neovim&logoColor=white)](https://neovim.io)
+[![Lua](https://img.shields.io/badge/Lua-blue.svg?style=flat-square&logo=lua&logoColor=white)](http://www.lua.org)
+[![License](https://img.shields.io/github/license/followcat/catnvim?style=flat-square)](./LICENSE)
 
-This is followcat's personal Neovim setup - a carefully crafted development environment
-built on top of lazy.nvim with sensible defaults and powerful plugins.
+**A modern, theme-driven Neovim configuration** tailored for productivity and elegance 💎
 
-## 📦 Features
+Built on top of [lazy.nvim](https://github.com/folke/lazy.nvim) with sensible defaults and powerful plugins.
 
-- Session load and switch
-- File explorer
-- File find and search
-- Terminal
-- LSP
-- Pretty Code highlighting, Colors highlighting
-- Auto completion
-- Languages
-- Git integration
-- Git diff view
-- Pretty Tabline, Statusline, Winbar, Outline
-- Starting screen
-- Quick resize the window
-- Zen mode
-- Markdown Preview via your browser
-- ...
+</div>
 
-## 🎆 Preview
+---
 
-![](./docs/images/start-screen.png)
-![](./docs/images/autocmp.png)
-![](./docs/images/float-term.png)
-![](./docs/images/find.png)
-![](./docs/images/color-highlight.png)
+## ✨ Features
 
-## 📌 Requirements
+<table>
+<tr>
+<td>
 
-- Neovim 0.8+
-- Not required, but recommended
-  - [nerd font](https://www.nerdfonts.com/font-downloads)
-    - Victor Mono Nerd Font
-    - JetBrainsMono Nerd Font
-    - ...
-  - [ripgrep](https://github.com/BurntSushi/ripgrep)
-  - [fd](https://github.com/sharkdp/fd)
+**🎨 Interface**
+- Beautiful starting screen
+- Modern tabline & statusline
+- File explorer with Neo-tree
+- Outline view with Aerial
+- Zen mode for focus
 
-## 🚧 Install
+</td>
+<td>
 
-#### MacOS/Linux
+**💻 Development**
+- LSP support for multiple languages
+- Syntax highlighting (TreeSitter)
+- Auto-completion
+- Code formatting
+- Git integration & diff view
 
-0️⃣ **Backup your current nvim**
+</td>
+</tr>
+<tr>
+<td>
 
+**🔍 Navigation**
+- Fuzzy finding (Telescope)
+- File search with ripgrep
+- Buffer & session management
+- Quick window navigation
+
+</td>
+<td>
+
+**⚡ Productivity**
+- Floating terminal
+- AI assistance (ChatGPT, Copilot)
+- Markdown preview
+- Quick window resizing
+- Custom keybindings
+
+</td>
+</tr>
+</table>
+
+## 📸 Screenshots
+
+<div align="center">
+
+### Starting Screen
+![Starting Screen](./docs/images/catnvim-start.png)
+
+### Code Editing with Auto-completion
+![Auto-completion](./docs/images/catnvim-coding.png)
+
+### Fuzzy Finding with Telescope
+![Telescope](./docs/images/catnvim-telescope.png)
+
+### Integrated Terminal
+![Terminal](./docs/images/catnvim-terminal.png)
+
+</div>
+
+## 📋 Requirements
+
+### Required
+- **Neovim** 0.8+ (0.9+ recommended)
+- **Git** for plugin management
+
+### Recommended
+- **[Nerd Font](https://www.nerdfonts.com/font-downloads)** for icons
+  - JetBrainsMono Nerd Font
+  - Victor Mono Nerd Font
+  - FiraCode Nerd Font
+- **[ripgrep](https://github.com/BurntSushi/ripgrep)** for faster searching
+- **[fd](https://github.com/sharkdp/fd)** for faster file finding
+- **Node.js** for some LSP servers
+
+## 🚀 Installation
+
+### MacOS / Linux
+
+**1. Backup your current configuration**
 ```bash
-mv ~/.config/nvim       ~/.config/nvim.bak
-mv ~/.local/share/nvim  ~/.local/share/nvim.bak
+mv ~/.config/nvim ~/.config/nvim.bak
+mv ~/.local/share/nvim ~/.local/share/nvim.bak
 ```
 
-1️⃣ **Clone catnvim repo**
-
+**2. Clone CatNvim**
 ```bash
 git clone https://github.com/followcat/catnvim.git ~/.config/nvim
 ```
 
-2️⃣ **Start `nvim` in your terminal, plugins will be automatically installed**
+**3. Start Neovim**
+```bash
+nvim
+```
 
-3️⃣ **Restart `nvim` and enjoy it** 🐱
+Plugins will be automatically installed on first launch. Wait for the installation to complete.
 
-4️⃣ **Keep updated with `git pull`**
+**4. Restart Neovim and enjoy!** 🐱
 
-## ⌛️ Update
+### Windows
 
-You should keep updated, it's great.
+```powershell
+# Backup
+Move-Item $env:LOCALAPPDATA\nvim $env:LOCALAPPDATA\nvim.bak
+Move-Item $env:LOCALAPPDATA\nvim-data $env:LOCALAPPDATA\nvim-data.bak
 
-You can use `git pull` to update it. If you've edited something, you may need to merge the content manually, just like a normal git operation.
+# Clone
+git clone https://github.com/followcat/catnvim.git $env:LOCALAPPDATA\nvim
+```
 
-## 🧱 Languages
+## 🔄 Updating
 
-#### Install LSP Server
+Keep your configuration up to date:
 
-Use command `:LspInstall` to download and install a server, e.g. `:LspInstall rust_analyzer`.
+```bash
+cd ~/.config/nvim
+git pull
+```
 
-#### Install TreeSitter Parser
+If you've made custom changes, you may need to merge manually. Consider using the `custom.lua` file for personal modifications.
 
-Use command `:TSInstall` to download and install a parser, e.g. `:TSInstall rust`.
+## 🛠️ Language Support
 
-## 🏠 Custom
+### Install LSP Servers
 
-#### 🔍 Configuration structure
+Use the `:LspInstall` command to install language servers:
+
+```vim
+:LspInstall rust_analyzer    " Rust
+:LspInstall pyright          " Python
+:LspInstall tsserver         " TypeScript/JavaScript
+:LspInstall lua_ls           " Lua
+:LspInstall gopls            " Go
+```
+
+### Install TreeSitter Parsers
+
+Use the `:TSInstall` command to install syntax parsers:
+
+```vim
+:TSInstall rust
+:TSInstall python
+:TSInstall typescript
+:TSInstall lua
+:TSInstall go
+```
+
+## ⚙️ Configuration
+
+### 📁 Project Structure
 
 ```
 ~/.config/nvim/
-├── init.lua
-├── lazy-lock.json
+├── init.lua              # Main entry point
+├── filetype.lua          # Filetype detection
+├── lazy-lock.json        # Plugin versions lock
 └── lua/
-    ├── plugins/
-    │   └── ...
-    ├── languages/
-    │   └── ...
-    ├── my_plugins/
-    │   └── ...
-    ├── basic.lua
-    ├── custom.lua
-    ├── custom_keys.lua
-    ├── custom_opts.lua
-    └── settings.lua
+    ├── basic.lua         # Basic Vim settings
+    ├── core.lua          # Core keymaps & autocmds
+    ├── custom_keys.lua   # Keymap configuration
+    ├── custom_opts.lua   # UI options
+    ├── custom.lua        # Your custom config (optional)
+    ├── plugins/          # Core plugins
+    ├── languages/        # Language-specific configs
+    └── my_plugins/       # Your custom plugins
 ```
 
-- ~/.config/nvim/lua/**my_plugins/**
+### 📝 Customization
 
-  You can put the plugins you want into the directory.
+**Add custom configuration:**
+- Create `~/.config/nvim/lua/custom.lua` for your personal settings
+- This file is loaded last and won't be overwritten by updates
 
-- ~/.config/nvim/lua/**custom.lua**
+**Add custom plugins:**
+- Create plugin files in `~/.config/nvim/lua/my_plugins/`
+- Each file should return a table of plugin specs (lazy.nvim format)
 
-  This file does not exist by default, you can create this file, then place some custom configuration logic, the custom.lua module will be loaded last.
+### ⌨️ Keybindings
 
-#### ⌨️ Shortcut Keys
+[👉 View all default keybindings](./lua/custom_keys.lua)
 
-[👉 View the default shortcut settings](./lua/custom_keys.lua)
+**Essential Shortcuts:**
 
-Edit shortcuts in `~/.config/nvim/lua/custom_keys.lua`
+| Key | Action | Mode |
+|-----|--------|------|
+| `<Space>` | Leader key | - |
+| `<leader>w` | Save file | Normal |
+| `<leader>q` | Quit | Normal |
+| `<leader>h` | Clear search highlight | Normal |
+| `<C-h/j/k/l>` | Navigate windows | Normal |
+| `<C-Up/Down/Left/Right>` | Resize windows | Normal |
+| `<Tab>` / `<S-Tab>` | Next/Previous tab | Normal |
+| `<leader>bn/bp/bd` | Buffer next/prev/delete | Normal |
+| `<A-j/k>` | Move lines up/down | Normal/Visual |
+| `<F9>` | Toggle file explorer | Normal |
+| `<leader>ff` | Find files | Normal |
+| `<leader>gg` | Live grep | Normal |
+| `<A-u>` | Toggle floating terminal | Normal/Terminal |
 
-**Additional keymaps (from init.vim, now in core.lua):**
-- `<Space>` - Leader key
-- `<leader>w/q/wq` - Save/Quit/Save&Quit
-- `<leader>h` - Clear search highlight
-- `<C-h/j/k/l>` - Window navigation
-- `<C-Up/Down/Left/Right>` - Resize windows
-- `<Tab>/<S-Tab>` - Next/Previous tab
-- `<leader>bn/bp/bd` - Buffer next/previous/delete
-- `<A-j/k>` - Move lines up/down
-- `Y` - Copy to end of line
+**From init.vim migration:**
+- Window navigation and resizing
+- Tab and buffer management
+- Line movement in normal and visual mode
+- Smart indentation in visual mode
 
-#### 😍 Add the plugins you want
+### 💯 Add Custom Plugins
 
-Create a `plugin_name.lua` file in `~/.config/nvim/lua/my_plugins/` and configure plugins using lazy.nvim syntax:
+Create a new file in `~/.config/nvim/lua/my_plugins/` (e.g., `my_custom.lua`):
 
 ```lua
 return {
-    -- Your Plugin1
+    -- Example: Add a colorscheme
     {
-        'username/plugin1',
-        config = function() ... end
+        'folke/tokyonight.nvim',
+        config = function()
+            vim.cmd[[colorscheme tokyonight]]
+        end
     },
-
-    -- Your Plugin2
-    {'username/plugin2'},
+    
+    -- Example: Add a plugin with configuration
+    {
+        'windwp/nvim-autopairs',
+        event = "InsertEnter",
+        config = function()
+            require('nvim-autopairs').setup{}
+        end
+    },
 }
 ```
 
-#### 💯 Recommended plugins
+Recommended plugins are available in `~/.config/nvim/misc/recommended/`. Copy them to `my_plugins/` to enable:
 
-Some useful plugins are configured by default in the directory `~/.config/nvim/misc/recommended`,
-but they are not loaded into neovim by default ,
-so if you need them, you can copy them into the directory `~/.config/nvim/lua/my_plugins/`.
-
-Example:
-
-```
+```bash
 cp ~/.config/nvim/misc/recommended/markdown.lua ~/.config/nvim/lua/my_plugins/
 ```
 
 ## 🧩 Plugins
 
-[👉 View all plugins integrated](./docs/plugins.md)
+[👉 View all integrated plugins](./docs/plugins.md)
 
-Use **lazy.nvim** to manage plugins.
+CatNvim uses **[lazy.nvim](https://github.com/folke/lazy.nvim)** for plugin management, providing:
+- Fast startup time with lazy loading
+- Automatic plugin updates
+- Easy plugin management with `:Lazy` command
+- Lock file for reproducible configurations
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to:
+- Report bugs or issues
+- Suggest new features
+- Submit pull requests
+- Share your custom configurations
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+Built upon the excellent work of the Neovim community and inspired by various configurations. Special thanks to:
+- [folke/lazy.nvim](https://github.com/folke/lazy.nvim) - Plugin manager
+- [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) - LSP configuration
+- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) - Syntax highlighting
+- All the amazing plugin authors in the Neovim ecosystem
+
+---
+
+<div align="center">
+
+**Made with 🐾 by followcat**
+
+⭐ Star this repo if you find it helpful!
+
+</div>
