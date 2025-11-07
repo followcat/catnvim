@@ -1,137 +1,166 @@
-# 🐱 CatNvim
+<p align="center">
+  <img width="180" src="https://github.com/hardhackerlabs/themes/raw/master/media/logo/logo.png" alt="HardHacker">
+</p>
 
-A **personal**, **theme-driven** Neovim configuration by followcat.
+<h1 align="center">
+    oh-my-nvim<br/>
+  <a href="https://discord.com/invite/MGmp9QjfkK">
+    <img src="https://img.shields.io/discord/1095552215944527962?style=for-the-badge&logo=discord&color=e965a5&logoColor=eee9fc&labelColor=282433"/>
+  </a>
+</h1>
 
-> Based on the excellent [oh-my-nvim](https://github.com/hardhackerlabs/oh-my-nvim) framework with my own customizations and workflow preferences.
+A **theme-driven**, out-of-the-box modern configuration of neovim 💎
 
-## ✨ Features
+We developed a theme called [HardHacker](https://github.com/hardhackerlabs/themes), which we thought was pretty and eye friendly,
+but we found that many neovim plugins have their own color scheme,
+so we made a neovim integration environment that matches the hardhacker theme.
 
-- 🎨 Beautiful theme integration (HardHacker)
-- 🔍 Powerful file search and navigation (Telescope + Neo-tree)
-- 🤖 AI-powered coding assistance (GitHub Copilot, CodeCompanion)
-- 📝 LSP support for multiple languages
-- 🐍 Python development focused
-- ⌨️ Intuitive custom keybindings
-- 🚀 Fast startup with lazy loading
-- 🎯 Minimalist and clean interface
+## 📦 Features
 
-## 📋 Requirements
+- Session load and switch
+- File explorer
+- File find and search
+- Terminal
+- LSP
+- Pretty Code highlighting, Colors highlighting
+- Auto completion
+- Languages
+- Git integration
+- Git diff view
+- Pretty Tabline, Statusline, Winbar, Outline
+- Starting screen
+- Quick resize the window
+- Zen mode
+- Markdown Preview via your browser
+- ...
+
+## 🎆 Preview
+
+![](./docs/images/start-screen.png)
+![](./docs/images/autocmp.png)
+![](./docs/images/float-term.png)
+![](./docs/images/find.png)
+![](./docs/images/color-highlight.png)
+
+## 📌 Requirements
 
 - Neovim 0.8+
-- Git
-- A [Nerd Font](https://www.nerdfonts.com/font-downloads) (recommended: Victor Mono, JetBrainsMono)
-- [ripgrep](https://github.com/BurntSushi/ripgrep) (for search)
-- [fd](https://github.com/sharkdp/fd) (for file finding)
-- GitHub Copilot account (optional, for AI features)
+- Not required, but recommended
+  - [nerd font](https://www.nerdfonts.com/font-downloads)
+    - Victor Mono Nerd Font
+    - JetBrainsMono Nerd Font
+    - ...
+  - [ripgrep](https://github.com/BurntSushi/ripgrep)
+  - [fd](https://github.com/sharkdp/fd)
 
-## 🚀 Installation
+## 🚧 Install
 
-### Backup your current config
+#### MacOS/Linux
 
-```bash
-mv ~/.config/nvim ~/.config/nvim.bak
-mv ~/.local/share/nvim ~/.local/share/nvim.bak
+0️⃣ **Backup your current nvim**
+
+```
+mv ~/.config/nvim       ~/.config/nvim.bak
+mv ~/.local/share/nvim  ~/.local/share/nvim.bak
 ```
 
-### Install CatNvim
+1️⃣ **Clone oh-my-nvim repo**
 
-```bash
-git clone https://github.com/followcat/catnvim.git ~/.config/nvim
+```
+git clone https://github.com/hardhackerlabs/oh-my-nvim.git ~/.config/nvim
 ```
 
-### Start Neovim
+2️⃣ **Start `nvim` in your terminal, then automatically install and setup all plugins**
 
-```bash
-nvim
-```
+3️⃣ **Restart `nvim` and enjoy it** 🍻
 
-Plugins will automatically install on first launch.
+4️⃣ **Keep updated**
 
-## ⌨️ Key Bindings
+## ⌛️ Update
 
-### File Navigation
-- `<F9>` - Toggle file explorer (Neo-tree)
-- `<F8>` - Git status (floating window)
-- `<F7>` - Code outline (Aerial)
-- `<F4>` - Open Telescope picker
+You should keep updated, it's great.
 
-### AI Assistants
-- `<F3>` - Toggle CodeCompanion chat
-- `<F5>` - Open ChatGPT interface
-- `<C-g>c` - New GPT chat
-- `<C-g>t` - Toggle GPT chat
-- `<C-g>r` - GPT respond
-- Visual mode: `<C-g>` - Search selection with Telescope
+You can use `git pull` to update it. If you've edited something, you may need to merge the content manually, just like a normal git operation.
 
-### Terminal
-- `<Alt-u>` - Toggle floating terminal
-- `<Alt-b>` - Toggle bottom terminal
+## 🧱 Languages
 
-### Buffer Navigation
-- `<C-j>` - Previous buffer
-- `<C-k>` - Next buffer
-- `<Shift-h>` - Previous buffer (alternative)
-- `<Shift-l>` - Next buffer (alternative)
+#### Install LSP Server
 
-### Copilot
-- `<C-J>` (Insert mode) - Accept Copilot suggestion
+Use command `:LspInstall` to download and install a server, e.g. `:LspInstall rust_analyzer`.
 
-## 🎨 Customization
+#### Install TreeSitter Parser
 
-### Add Your Own Plugins
+Use command `:TSInstall` to download and install a parser, e.g. `:TSInstall rust`.
 
-Create files in `~/.config/nvim/lua/my_plugins/` following this template:
+## 🏠 Custom
 
-```lua
-return {
-    {
-        'username/plugin-name',
-        config = function()
-            -- configuration here
-        end
-    },
-}
-```
-
-### Custom Configuration
-
-Create `~/.config/nvim/lua/custom.lua` for your personal overrides.
-
-## 📁 Structure
+#### 🔍 Configuration structure
 
 ```
 ~/.config/nvim/
-├── init.lua                 # Entry point
-├── lua/
-│   ├── core/               # Core configurations
-│   ├── plugins/            # Plugin configurations
-│   ├── languages/          # Language-specific setups
-│   ├── my_plugins/         # Your custom plugins
-│   ├── basic.lua           # Basic Neovim settings
-│   ├── custom_keys.lua     # Keybinding definitions
-│   └── custom_opts.lua     # Display options
-├── docs/                   # Documentation
-└── misc/                   # Miscellaneous files
+├── init.lua
+├── lazy-lock.json
+└── lua/
+    ├── plugins/
+    │   └── ...
+    ├── languages/
+    │   └── ...
+    ├── my_plugins/
+    │   └── ...
+    ├── basic.lua
+    ├── custom.lua
+    ├── custom_keys.lua
+    ├── custom_opts.lua
+    └── settings.lua
 ```
 
-## 🐍 Python Development
+- ~/.config/nvim/lua/**my_plugins/**
 
-CatNvim is optimized for Python development with:
-- LSP support (pyright/pylsp)
-- Auto-completion
-- Linting and formatting
-- Debugger integration ready
+  You can put the plugins you want into the directory.
 
-## 🙏 Credits
+- ~/.config/nvim/lua/**custom.lua**
 
-- [oh-my-nvim](https://github.com/hardhackerlabs/oh-my-nvim) - Base framework
-- [HardHacker Theme](https://github.com/hardhackerlabs/themes) - Color scheme
-- All the amazing plugin authors
+  This file does not exist by default, you can create this file, then place some custom configuration logic, the custom.lua module will be loaded last.
 
-## 📝 License
+#### ⌨️ Shortcut Keys
 
-Apache 2.0
+[👉 View the default shortcut settings](https://github.com/hardhackerlabs/oh-my-nvim/blob/main/lua/custom_keys.lua)
 
----
+You can edit the default settings of the shortcut keys in this configuration file (`~/.config/nvim/lua/custom_keys.lua`).
 
-Made with 🐱 by [followcat](https://github.com/followcat)
+#### 😍 Add the plugins you want
+
+If you want to add your own plugins, you can create a `plugin_name.lua` file in the directory `~/.config/nvim/lua/my_plugins`. Setup the plugins in this file.
+
+The plugin configuration in the `plugin_name.lua` file refers to the following template (lazy.nvim syntax):
+
+```
+return {
+    -- Your Plugin1
+    {
+        'hardhacker/plugin1',
+        config = function() ... end
+    },
+
+    -- Your Plugin2
+    {'hardhacker/plugin2'},
+}
+```
+
+#### 💯 Recommended plugins
+
+Some useful plugins are configured by default in the directory `~/.config/nvim/misc/recommended`,
+but they are not loaded into neovim by default ,
+so if you need them, you can copy them into the directory `~/.config/nvim/lua/my_plugins/`.
+
+Example:
+
+```
+cp ~/.config/nvim/misc/recommended/markdown.lua ~/.config/nvim/lua/my_plugins/
+```
+
+## 🧩 Plugins
+
+[👉 View all plugins integrated](./docs/plugins.md)
+
+Use **lazy.nvim** to manage plugins.

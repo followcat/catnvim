@@ -1,24 +1,11 @@
--- ═══════════════════════════════════════════════════════════
--- Custom Display Options
--- ═══════════════════════════════════════════════════════════
-
 return {
-	-- File explorer title
 	file_explorer_title = "🥷 File Explorer",
-
-	-- Tab style: thin, thick, slope, slant
-	tab_style = "thin",
-
-	-- Terminal size (for floating terminal)
-	terminal_size = 0.8,
-
-	-- Window transparency (0-100, 0 = opaque)
+	tab_style = "thin", -- options: thin, thick, slope, slant
+	terminal_size = 0.8, -- control the float terminal only
 	window_transparency = 0,
+	auto_open_outline = false, -- options: true, false
 
-	-- Auto open outline
-	auto_open_outline = false,
-
-	-- Starting screen header (HardHacker style)
+	-- Starting screen header.
 	home_header = {
 		"                                                                                 ",
 		" ██╗  ██╗ █████╗ ██████╗ ██████╗ ██╗  ██╗ █████╗  ██████╗██╗  ██╗███████╗██████╗ ",

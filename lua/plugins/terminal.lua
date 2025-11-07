@@ -1,7 +1,3 @@
--- ═══════════════════════════════════════════════════════════
--- Terminal - ToggleTerm
--- ═══════════════════════════════════════════════════════════
-
 return {
 	{
 		"akinsho/toggleterm.nvim",
@@ -18,12 +14,25 @@ return {
 					end
 				end,
 				highlights = {
-					Normal = { link = "Normal" },
-					NormalFloat = { link = "Normal" },
-					FloatBorder = { link = "FloatBorder" },
+					Normal = {
+						link = "Normal",
+					},
+					NormalFloat = {
+						link = "Normal",
+					},
+					FloatBorder = {
+						link = "FloatBorder",
+					},
+					SignColumn = {
+						link = "EndOfBuffer",
+					},
+					EndOfBuffer = {
+						link = "EndOfBuffer",
+					},
 				},
 				float_opts = {
 					border = "rounded",
+					-- winblend = copts.window_transparency,
 					width = function(term)
 						local columns = vim.api.nvim_get_option("columns")
 						local w = math.floor(columns * copts.terminal_size)

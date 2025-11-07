@@ -1,9 +1,8 @@
--- ═══════════════════════════════════════════════════════════
--- Git Integration - Vim Fugitive
--- ═══════════════════════════════════════════════════════════
-
 return {
-	{
-		"tpope/vim-fugitive",
-	},
+    {
+        "tpope/vim-fugitive",
+        config = function()
+        end
+    },
 }
+

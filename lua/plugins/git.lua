@@ -1,9 +1,4 @@
--- ═══════════════════════════════════════════════════════════
--- Git Integration
--- ═══════════════════════════════════════════════════════════
-
 return {
-	-- Git signs
 	{
 		"lewis6991/gitsigns.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
@@ -17,9 +12,5 @@ return {
 		end,
 	},
 
-	-- Diff view
-	{
-		"sindrets/diffview.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
-	},
+	{ "sindrets/diffview.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
 }

@@ -39,14 +39,7 @@ luac.out
 *.x86_64
 *.hex
 
-# Lazy.nvim lock file
 lazy-lock.json
-
-# Keep example plugin
 !lua/my_plugins/example.lua
-
-# Package lock
 package-lock.json
 
-# Local config (for sensitive data)
-lua/custom_local.lua

@@ -1,9 +1,5 @@
--- ═══════════════════════════════════════════════════════════
--- Coding Enhancements
--- ═══════════════════════════════════════════════════════════
-
 return {
-	-- Auto-tag
+	-- auto-tag
 	{
 		"windwp/nvim-ts-autotag",
 		config = function()
@@ -11,89 +7,73 @@ return {
 		end,
 	},
 
-	-- Auto-pairs
+	-- auto-pairs
 	{
 		"windwp/nvim-autopairs",
 		config = function()
 			require("nvim-autopairs").setup({
 				enable_check_bracket_line = false,
-				ignored_next_char = "[%w%.]",
+				ignored_next_char = "[%w%.]", -- will ignore alphanumeric and `.` symbol
 			})
 		end,
 	},
 
-	-- Auto completion (nvim-cmp)
+	-- auto completion
 	{
 		"hrsh7th/nvim-cmp",
-		dependencies = {
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-cmdline",
-			"L3MON4D3/LuaSnip",
-			"onsails/lspkind.nvim",
-		},
 		config = function()
-			local cmp = require("cmp")
-			local lspkind = require("lspkind")
-
-			cmp.setup({
-				snippet = {
-					expand = function(args)
-						require("luasnip").lsp_expand(args.body)
-					end,
-				},
-				window = {
-					completion = cmp.config.window.bordered(),
-					documentation = cmp.config.window.bordered(),
-				},
-				mapping = cmp.mapping.preset.insert({
-					["<C-b>"] = cmp.mapping.scroll_docs(-4),
-					["<C-f>"] = cmp.mapping.scroll_docs(4),
-					["<C-Space>"] = cmp.mapping.complete(),
-					["<C-e>"] = cmp.mapping.abort(),
-					["<CR>"] = cmp.mapping.confirm({ select = true }),
-				}),
-				sources = cmp.config.sources({
-					{ name = "nvim_lsp" },
-					{ name = "luasnip" },
-				}, {
-					{ name = "buffer" },
-					{ name = "path" },
-				}),
-				formatting = {
-					format = lspkind.cmp_format({
-						mode = "symbol_text",
-						maxwidth = 50,
-					}),
-				},
-			})
-
-			-- Autopairs integration
-			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+			require("plugins/autocmp/config")()
 		end,
 	},
+	{ "hrsh7th/cmp-nvim-lsp" },
+	{ "hrsh7th/cmp-buffer" },
+	{ "hrsh7th/cmp-path" },
+	{ "hrsh7th/cmp-cmdline" },
+	{ "L3MON4D3/LuaSnip" }, -- install the LuaSnip engine
+	{ "onsails/lspkind.nvim" }, -- icons in autocomplete source
 
-	-- Todo comments
+	-- todo comments
+	-- Preview
+	-- TODO: todo
+	-- FIX: fix
+	-- WARNING: warning
+	-- HACK: hack
+	-- NOTE: note
+	-- PERF: perf
+	-- TEST: test
+	--
 	{
 		"folke/todo-comments.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
 			require("todo-comments").setup({
 				keywords = {
-					FIX = { icon = " ", color = "error", alt = { "FIXME", "BUG", "ISSUE" } },
-					TODO = { icon = " ", color = "info" },
-					HACK = { icon = " ", color = "warning" },
-					WARN = { icon = " ", color = "warning", alt = { "WARNING" } },
-					PERF = { icon = "󱢍", alt = { "OPTIM", "PERFORMANCE" } },
-					NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
+					FIX = {
+						icon = " ", -- icon used for the sign, and in search results
+						color = "error", -- can be a hex color, or a named color (see below)
+						alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
+						-- signs = false, -- configure signs for some keywords individually
+					},
+					TODO = { icon = " ", color = "todo" },
+					HACK = { icon = " ", color = "warning" },
+					WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
+					PERF = { icon = "󱢍", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+					NOTE = { icon = " ", color = "info", alt = { "INFO" } },
+					TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
+				},
+				colors = {
+					error = { "DiagnosticError", "ErrorMsg", "#DC2626" },
+					warning = { "DiagnosticWarn", "WarningMsg", "#FBBF24" },
+					todo = { "DiagnosticOk", "#2563EB" },
+					info = { "DiagnosticInfo", "#10B981" },
+					default = { "Identifier", "#7C3AED" },
+					test = { "Identifier", "#FF00FF" },
 				},
 			})
 		end,
 	},
 
-	-- Guess indent
+	-- guess indent
 	{
 		"nmac427/guess-indent.nvim",
 		config = function()

@@ -1,6 +1,0 @@
--- ═══════════════════════════════════════════════════════════
--- Language-specific configurations
--- Add language-specific plugin configurations here
--- ═══════════════════════════════════════════════════════════
-
-return {}
