@@ -80,6 +80,14 @@ return {
             position = "right",
           },
         },
+        diff = {
+          provider = "inline",
+          provider_opts = {
+            inline = {
+              layout = "buffer", -- 改为 buffer 模式，直接在文件中显示
+            },
+          },
+        },
       },
       extensions = {
         mcphub = {
